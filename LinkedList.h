@@ -47,11 +47,7 @@ template <class T>
 void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
 
 // Size method
-<<<<<<< HEAD
-template <class T>
-=======
 template <class T> 
->>>>>>> 641c82d1cc15cacbbd6c870000933409482c14a8
 int LinkedList<T>::size() const
 {
   return theList.size();
@@ -71,7 +67,7 @@ T LinkedList<T>::get(int index) const
     }
     return *it;
   }
-  return null;
+  throw std::invalid_argument("Received invalid index");
 }
 
 // Remove method
