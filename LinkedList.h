@@ -4,6 +4,8 @@
 #include <list>
 #include <vector>
 #include <stdexcept>
+#include <sstream>
+#include <string>
 
 template <class T>
 class LinkedList
@@ -57,40 +59,41 @@ int LinkedList<T>::size() const
 template <class T>
 T LinkedList<T>::get(int index) const
 {
-  try {
-    if (index >= theList.size() || index < 0)
-    {
-      throw std::invalid_argument("Invalid index");
-    }
-    typename std::list<T>::const_iterator it = theList.begin(); // Initialize const iterator
-    // Iterate through theList to find correct index
-    for (int i = 0; i < index; i++)
-    {
-      it++;
-    }
-    return *it;
-  }
-  catch(const std::invalid_argument& e)
+  if (theList.size() == 0)
   {
-    std::cout << "Error: Invalid index provided" << std::endl;
+    throw std::invalid_argument("Invalid attempt to retrieve from empty list.");
   }
+  if (index >= theList.size() || index < 0)
+  {
+    std::stringstream ss;
+    ss << "Invalid index " << index << "; list size: " << theList.size();
+    std::string str = ss.str();
+    throw std::invalid_argument(str.c_str());
+  }
+  typename std::list<T>::const_iterator it = theList.begin(); // Initialize const iterator
+  // Iterate through theList to find correct index
+  for (int i = 0; i < index; i++)
+  {
+    it++;
+  }
+  return *it;
 }
 
-Remove method
-template <class T>
-T LinkedList<T>::remove(int index)
-{
-    if (theList.size() and (index < 0 or index >= this->theList.size()))
-        throw std::invalid_argument("Invalid index %d", index);
-    else if (theList.size() == 0)
-        throw std::invalid_argument("Invalid attempt to retrieve from empty list");
-    else
-    {
-        typename std::list<T>::iterator it = this->theList.begin();
-        for (int i = 0; i <= index; i++, it++);
-        return this->theList.remove(it);
-    }
-}
+// Remove method
+// template <class T>
+// T LinkedList<T>::remove(int index)
+// {
+//     if (theList.size() and (index < 0 or index >= this->theList.size()))
+//         throw std::invalid_argument("Invalid index %d", index);
+//     else if (theList.size() == 0)
+//         throw std::invalid_argument("Invalid attempt to retrieve from empty list");
+//     else
+//     {
+//         typename std::list<T>::iterator it = this->theList.begin();
+//         for (int i = 0; i <= index; i++, it++);
+//         return this->theList.remove(it);
+//     }
+// }
 
 // toArray method
 template <class T>

@@ -20,7 +20,13 @@ int main()
 	std::cout << "Testing get on empty list" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "l.get(2)" << std::endl;
-	std::cout << l.get(2) << std::endl;
+	try {
+		std::cout << l.get(2) << std::endl;
+	}
+	catch (const std::invalid_argument &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << std::endl;
 
 	// Testing add
@@ -35,6 +41,21 @@ int main()
 	l.add(42);
 	std::cout << "l.size() = " << l.size() << " [Expected: 3]" << std::endl;
 	std::cout << "l.get(2) = " << l.get(2) << " [Expected: 42]" << std::endl;
+	std::cout << std::endl;
+
+	// Testing invalid index for get
+	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "Testing invalid index for get" << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "l.get(5)" << std::endl;
+	try
+	{
+		std::cout << l.get(5) << std::endl;
+	}
+	catch (const std::invalid_argument &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << std::endl;
 
 	// Testing remove
