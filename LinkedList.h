@@ -27,7 +27,7 @@ class LinkedList
      LinkedList<T>& operator+=( const T& item );
 };
 
-// Contructor
+// Constructor
 template <class T> LinkedList<T>::LinkedList() {}
 
 // Destructor
@@ -76,7 +76,7 @@ T LinkedList<T>::get(int index) const
   }
 }
 
-// Remove method
+Remove method
 template <class T>
 T LinkedList<T>::remove(int index)
 {
@@ -94,9 +94,16 @@ T LinkedList<T>::remove(int index)
 
 // toArray method
 template <class T>
-std::vector<T> toArray()
+std::vector<T> LinkedList<T>::toArray() const
 {
-
+  std::vector<T> arr;
+  typename std::list<T>::const_iterator it = theList.begin();
+  while (it != theList.end())
+  {
+    arr.push_back(*it);
+    it++;
+  }
+  return arr;
 }
 
 
