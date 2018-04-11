@@ -38,5 +38,12 @@ LinkedList<T>::LinkedList(const LinkedList<T>& other)
         this->theList.push_back(*it++);
 }
 
+// Size method
+template <class T> 
+int LinkedList<T>::size()
+{
+  return theList.size();
+}
+
 
 #endif
