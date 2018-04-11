@@ -37,7 +37,7 @@ template <class T> LinkedList<T>::~LinkedList() {}
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
-    typename std::list<T>::iterator it = other.theList.begin();
+    typename std::list<T>::const_iterator it = other.theList.begin();
     while (it != other.theList.end())
         this->theList.push_back(*it++);
 }
@@ -47,7 +47,7 @@ template <class T>
 void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
 
 // Size method
-template <class T> 
+template <class T>
 int LinkedList<T>::size() const
 {
   return theList.size();

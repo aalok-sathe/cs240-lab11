@@ -39,7 +39,6 @@ int main()
 	std::cout << "copyList.size() = " << copyList.size() << "[3]" << std::endl;
 	
 		
-	std::cout << l.
 	
 	// 
 	
