@@ -3,6 +3,7 @@
 
 #include <list>
 #include <vector>
+#include <stdexcept>
 
 template <class T>
 class LinkedList
@@ -43,7 +44,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& other)
 
 // Size method
 template <class T> 
-int LinkedList<T>::size()
+int LinkedList<T>::size() const
 {
   return theList.size();
 }
@@ -57,7 +58,16 @@ void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
 template <class T>
 T LinkedList<T>::remove(int index)
 {
-    
+    if (theList.size() and (index < 0 or index >= this->theList.size()))
+        throw std::invalid_argument("Invalid index %d", index);
+    else if (theList.size() == 0)
+        throw std::invalid_argument("Invalid attempt to retrieve from empty list");
+    else
+    {
+        typename std::list<T>::iterator it = this->theList.begin();
+        for (int i = 0; i <= index; i++, it++);
+        return this->theList.remove(it);
+    }
 }
 
 
