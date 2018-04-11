@@ -26,10 +26,13 @@ class LinkedList
      LinkedList<T>& operator+=( const T& item );
 };
 
+// Contructor
 template <class T> LinkedList<T>::LinkedList() {}
 
+// Destructor
 template <class T> LinkedList<T>::~LinkedList() {}
 
+// Copy constructor
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
@@ -44,6 +47,12 @@ int LinkedList<T>::size()
 {
   return theList.size();
 }
+
+// Add method
+template <class T>
+void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
+
+
 
 
 #endif
