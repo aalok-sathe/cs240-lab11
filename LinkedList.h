@@ -37,7 +37,7 @@ template <class T> LinkedList<T>::~LinkedList() {}
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
-    typename std::list<T>::iterator it = other.theList.begin();
+    typename std::list<T>::const_iterator it = other.theList.begin();
     while (it != other.theList.end())
         this->theList.push_back(*it++);
 }
@@ -62,12 +62,12 @@ T LinkedList<T>::remove(int index)
         throw std::invalid_argument("Invalid index %d", index);
     else if (theList.size() == 0)
         throw std::invalid_argument("Invalid attempt to retrieve from empty list");
-    else
-    {
+    //else
+    //{
         typename std::list<T>::iterator it = this->theList.begin();
         for (int i = 0; i <= index; i++, it++);
         return this->theList.remove(it);
-    }
+    //}
 }
 
 
