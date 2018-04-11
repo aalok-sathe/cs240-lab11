@@ -42,17 +42,37 @@ LinkedList<T>::LinkedList(const LinkedList<T>& other)
         this->theList.push_back(*it++);
 }
 
+// Add method
+template <class T>
+void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
+
 // Size method
+<<<<<<< HEAD
+template <class T>
+=======
 template <class T> 
+>>>>>>> 641c82d1cc15cacbbd6c870000933409482c14a8
 int LinkedList<T>::size() const
 {
   return theList.size();
 }
 
-// Add method
+// Get method
 template <class T>
-void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
-
+T LinkedList<T>::get(int index) const
+{
+  if (index < theList.size())
+  {
+    typename std::list<T>::const_iterator it = theList.begin(); // Initialize const iterator
+    // Iterate through theList to find correct index
+    for (int i = 0; i < index; i++)
+    {
+      it++;
+    }
+    return *it;
+  }
+  return null;
+}
 
 // Remove method
 template <class T>
@@ -68,6 +88,13 @@ T LinkedList<T>::remove(int index)
         for (int i = 0; i <= index; i++, it++);
         return this->theList.remove(it);
     //}
+}
+
+// toArray method
+template <class T>
+std::vector<T> toArray()
+{
+
 }
 
 
