@@ -3,7 +3,9 @@
 
 int main()
 {	
+    // Constructor
 	LinkedList<int> l;
+
 
 	// Testing size
 	std::cout << "Testing size" << std::endl;
@@ -21,6 +23,27 @@ int main()
 	std::cout << l.size() << "[Expected: 1]" << std::endl;
 	std::cout << l.get(2) << "[Expected: ]" << std::endl;
 	std::cout << std::endl;
+
+
+	l.add(3);
+	l.add(1);
+	l.add(42);
+	
+	// Size method test
+	std::cout << "l.size() = " << l.size() << "[3]" << std::endl;
+	
+	
+	
+	
+	// Copy constructor
+	LinkedList<int> copyList(l);
+	std::cout << "copyList.size() = " << copyList.size() << "[3]" << std::endl;
+	
+		
+	std::cout << l.
+	
+	// 
+	
 
 	return 0;
 }
