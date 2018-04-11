@@ -47,11 +47,7 @@ template <class T>
 void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
 
 // Size method
-<<<<<<< HEAD
 template <class T>
-=======
-template <class T> 
->>>>>>> 641c82d1cc15cacbbd6c870000933409482c14a8
 int LinkedList<T>::size() const
 {
   return theList.size();
@@ -82,12 +78,12 @@ T LinkedList<T>::remove(int index)
         throw std::invalid_argument("Invalid index %d", index);
     else if (theList.size() == 0)
         throw std::invalid_argument("Invalid attempt to retrieve from empty list");
-    //else
-    //{
+    else
+    {
         typename std::list<T>::iterator it = this->theList.begin();
         for (int i = 0; i <= index; i++, it++);
         return this->theList.remove(it);
-    //}
+    }
 }
 
 // toArray method
