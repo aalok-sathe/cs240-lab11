@@ -53,6 +53,12 @@ template <class T>
 void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
 
 
+// Remove method
+template <class T>
+T LinkedList<T>::remove(int index)
+{
+    
+}
 
 
 #endif
