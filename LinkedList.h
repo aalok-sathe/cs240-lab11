@@ -57,8 +57,11 @@ int LinkedList<T>::size() const
 template <class T>
 T LinkedList<T>::get(int index) const
 {
-  if (index < theList.size())
-  {
+  try {
+    if (index >= theList.size() || index < 0)
+    {
+      throw std::invalid_argument("Invalid index");
+    }
     typename std::list<T>::const_iterator it = theList.begin(); // Initialize const iterator
     // Iterate through theList to find correct index
     for (int i = 0; i < index; i++)
@@ -67,7 +70,10 @@ T LinkedList<T>::get(int index) const
     }
     return *it;
   }
-  throw std::invalid_argument("Received invalid index");
+  catch(const std::invalid_argument& e)
+  {
+    std::cout << "Error: Invalid index provided" << std::endl;
+  }
 }
 
 // Remove method
