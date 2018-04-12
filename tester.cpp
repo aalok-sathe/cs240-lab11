@@ -113,8 +113,8 @@ int main()
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "LinkedList<int> copyList(l);" << std::endl;
 	LinkedList<int> copyList(l);
-	std::cout << "copyList.size() = " << copyList.size() << " [Expected: 3]" << std::endl;
-	std::cout << "copyList.get(2) = " << copyList.get(2) << " [Expected: 42]" << std::endl;
+	std::cout << "copyList.size() = " << copyList.size() << std::setw(32) << std::right << "[Expected: 3]" << std::endl;
+	std::cout << "copyList.get(2) = " << copyList.get(2) << std::setw(32) << std::right << "[Expected: 42]" << std::endl;
 	std::cout << std::endl;
 
 	// Testing toArray
@@ -125,7 +125,7 @@ int main()
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "std::vector<int> arr = l.toArray();" << std::endl;
 	std::vector<int> arr = l.toArray();
-	std::cout << "arr[2] = " << arr[2] << " [Expected: 42]" << std::endl;
+	std::cout << "arr[2] = " << arr[2] << std::setw(32) << std::right << "[Expected: 42]" << std::endl;
 	std::cout << std::endl;
 
     // Testing operator+=
