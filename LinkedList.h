@@ -1,3 +1,5 @@
+// Melissa Gu and Aalok Sathe
+
 #ifndef __LINKEDLIST_H__
 #define __LINKEDLIST_H__
 
@@ -30,7 +32,7 @@ class LinkedList
 };
 
 // Constructor
-template <class T> LinkedList<T>::LinkedList() {}
+template <class T> LinkedList<T>::LinkedList()  {}
 
 // Destructor
 template <class T> LinkedList<T>::~LinkedList() {}
@@ -39,6 +41,7 @@ template <class T> LinkedList<T>::~LinkedList() {}
 template <class T>
 LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
+    // Defines iterator and copies each item from `other' list
     typename std::list<T>::const_iterator it = other.theList.begin();
     while (it != other.theList.end())
         this->theList.push_back(*it++);
@@ -50,10 +53,7 @@ void LinkedList<T>::add(T element)  { this->theList.push_back(element); }
 
 // Size method
 template <class T>
-int LinkedList<T>::size() const
-{
-  return theList.size();
-}
+int LinkedList<T>::size() const     { return theList.size(); }
 
 // Get method
 template <class T>
@@ -80,20 +80,31 @@ T LinkedList<T>::get(int index) const
 }
 
 // Remove method
-// template <class T>
-// T LinkedList<T>::remove(int index)
-// {
-//     if (theList.size() and (index < 0 or index >= this->theList.size()))
-//         throw std::invalid_argument("Invalid index %d", index);
-//     else if (theList.size() == 0)
-//         throw std::invalid_argument("Invalid attempt to retrieve from empty list");
-//     else
-//     {
-//         typename std::list<T>::iterator it = this->theList.begin();
-//         for (int i = 0; i <= index; i++, it++);
-//         return this->theList.remove(it);
-//     }
-// }
+template <class T>
+T LinkedList<T>::remove(int index)
+{
+    // Check boundary conditions for errors
+    if (theList.size() == 0)
+        throw std::invalid_argument("Invalid attempt to retrieve from empty list");
+    else if (index < 0 or index >= this->theList.size())
+        {
+            std::stringstream ss;
+            ss << "Invalid index " << index << "; in list of size " << theList.size();
+            throw std::invalid_argument(ss.str().c_str());
+        }
+    else
+    {
+        // Define an iterator at the beginning, advance it by index, and remove
+        typename std::list<T>::iterator it = this->theList.begin();
+        std::advance(it,index);
+        // Initialize temporary variable to be returned
+        T returnable = *it;
+        // erase() returns reference to next element, so we can't return that
+        this->theList.erase(it);
+        // Return temporary variable
+        return returnable;
+    }
+}
 
 // toArray method
 template <class T>
@@ -109,5 +120,13 @@ std::vector<T> LinkedList<T>::toArray() const
   return arr;
 }
 
+// operator+= method
+template <class T>
+LinkedList<T>& LinkedList<T>::operator+=(const T& item)
+{
+    // Add item to underlying list and return reference to object
+    this->theList.push_back(item);
+    return *this;
+}
 
 #endif
