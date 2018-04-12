@@ -170,8 +170,14 @@ int main()
     std::cout << std::endl
 	          << "-----------------------------------------------------" << std::endl;
     std::cout << "-----------------------------------------------------" << std::endl;
-	std::cout << "Testing remove using invalid index"                    << std::endl;
+	std::cout << "Testing overloaded operator+="                         << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "((((l += 32) += 64) += 128) += 256);"             << std::endl << std::endl;
+	((((l += 32) += 64) += 128) += 256);
+    std::cout << std::setw(20) << std::right << "l.size() = " << l.size()
+	          << std::setw(20) << std::right << "[Expected: 7]" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.get(5) = " << l.get(5)
+	          << std::setw(20) << std::right << "[Expected: 128]" << std::endl;
 
 	return 0;
 }
