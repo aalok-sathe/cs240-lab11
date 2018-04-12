@@ -89,7 +89,7 @@ T LinkedList<T>::remove(int index)
     else if (index < 0 or index >= this->theList.size())
         {
             std::stringstream ss;
-            ss << "Invalid index " << index << "; in list of size " << theList.size();
+            ss << "Invalid index " << index << " in list of size " << theList.size();
             throw std::invalid_argument(ss.str().c_str());
         }
     else
