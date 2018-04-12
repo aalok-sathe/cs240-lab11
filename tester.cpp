@@ -7,6 +7,16 @@
 
 int main()
 {
+    // Info message
+    std::cout << std::endl
+	          << "-----------------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "Written by" << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << std::setw(20) << std::right << "Melissa Gu," << std::endl
+	          << std::setw(20) << std::right << "Aalok Sathe" << std::endl;
+
+
 	// Constructor
 	std::cout << std::endl
 	          << "-----------------------------------------------------" << std::endl;
