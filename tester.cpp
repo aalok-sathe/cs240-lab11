@@ -91,12 +91,32 @@ int main()
 	          << std::setw(20) << std::right << "[Expected: 2]"  << std::endl;
 	std::cout << std::endl;
 	
+	// Testing `remove' on empty list
+	std::cout << std::endl
+	          << "-----------------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "Testing remove on an empty list"                       << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "LinkedList<int> l_empty;" << std::endl;
+	LinkedList<int> l_empty;
+	try
+	{
+	    std::cout << "l_empty.remove(3);" << std::endl;
+	    l_empty.remove(3);
+    }
+    catch (const std::invalid_argument& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+	
 	// Testing `remove' using invalid index
 	std::cout << std::endl
 	          << "-----------------------------------------------------" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "Testing remove using invalid index"                    << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "l.remove(3);" << std::endl;
 	try
 	{
 	    l.remove(3);
