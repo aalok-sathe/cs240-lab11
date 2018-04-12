@@ -82,8 +82,10 @@ int main()
 	std::cout << "Testing remove"                                        << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << std::endl;
-	std::cout << "l.remove(2) = " << l.remove(2) << std::setw(32) << std::right << "[Expected: 42]" << std::endl;
-	std::cout << "l.size() = "    << l.size()    << std::setw(32) << std::right << "[Expected: 2]"  << std::endl;
+	std::cout << std::setw(20) << std::right << "l.remove(2) = " << l.remove(2)
+	          << std::setw(20) << std::right << "[Expected: 42]" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.size() = " << l.size()
+	          << std::setw(20) << std::right << "[Expected: 2]"  << std::endl;
 	std::cout << std::endl;
 	
 	// Testing `remove' using invalid index
