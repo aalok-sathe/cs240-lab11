@@ -92,14 +92,32 @@ int main()
 	std::cout << std::endl
 	          << "-----------------------------------------------------" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
-	std::cout << "Testing remove"                                        << std::endl;
+	std::cout << "Testing remove on central and head/tail indices"       << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << std::endl;
-	std::cout << std::setw(20) << std::right << "l.remove(2) = " << l.remove(2)
-	          << std::setw(20) << std::right << "[Expected: 42]" << std::endl;
+	std::cout << "Index 1, size 3: neither head nor tail" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.remove(1) = " << l.remove(1)
+	          << std::setw(20) << std::right << "[Expected: 1]" << std::endl;
 	std::cout << std::setw(20) << std::right << "l.size() = " << l.size()
 	          << std::setw(20) << std::right << "[Expected: 2]"  << std::endl;
 	std::cout << std::endl;
+	std::cout << "Index 0, size 2: removing head" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.remove(0) = " << l.remove(0)
+	          << std::setw(20) << std::right << "[Expected: 3]" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.size() = " << l.size()
+	          << std::setw(20) << std::right << "[Expected: 1]"  << std::endl;
+	std::cout << std::endl;
+	std::cout << "Index 0, size 1: removing head as well as tail" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.remove(0) = " << l.remove(0)
+	          << std::setw(20) << std::right << "[Expected: 42]" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.size() = " << l.size()
+	          << std::setw(20) << std::right << "[Expected: 0]"  << std::endl;
+	std::cout << std::endl;
+	
+	// Re-insert removed elements for more tests
+	std::cout << "Re-insert removed elements for later tests" << std::endl
+	          << "l.add(3); l.add(1); l.add(42);" << std::endl;
+    l.add(3); l.add(1); l.add(42);
 	
 	// Testing `remove' on empty list
 	std::cout << std::endl
@@ -136,9 +154,6 @@ int main()
         std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
-
-    // Re-insert removed element for more tests
-    l.add(42);
 
 	// Testing Copy constructor
 	std::cout << std::endl
