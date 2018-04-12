@@ -139,8 +139,7 @@ int main()
     std::cout << std::endl;
 	
 	// Testing `remove' using invalid index
-	std::cout << std::endl
-	          << "-----------------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "Testing remove using invalid index"                    << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
@@ -156,8 +155,7 @@ int main()
     std::cout << std::endl;
 
 	// Testing Copy constructor
-	std::cout << std::endl
-	          << "-----------------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "Testing Copy Constructor" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
