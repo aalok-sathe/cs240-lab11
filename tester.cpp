@@ -23,7 +23,8 @@ int main()
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "Testing size" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
-	std::cout << "l.size() = " << l.size() << std::setw(32) << std::right << "[Expected: 0]" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.size() = " << l.size()
+	          << std::setw(20) << std::right << "[Expected: 0]" << std::endl;
 	std::cout << std::endl;
 
 	// Testing `get' on empty list
@@ -54,8 +55,10 @@ int main()
 	l.add(3);
 	l.add(1);
 	l.add(42);
-	std::cout << "l.size() = " << l.size() << std::setw(32) << std::right << "[Expected: 3]" << std::endl;
-	std::cout << "l.get(2) = " << l.get(2) << std::setw(32) << std::right << "[Expected: 42]" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.size() = " << l.size()
+	          << std::setw(20) << std::right << "[Expected: 3]" << std::endl;
+	std::cout << std::setw(20) << std::right << "l.get(2) = " << l.get(2)
+	          << std::setw(20) << std::right << "[Expected: 42]" << std::endl;
 	std::cout << std::endl;
 
 	// Testing invalid index for `get'
@@ -113,10 +116,12 @@ int main()
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "Testing Copy Constructor" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
-	std::cout << "LinkedList<int> copyList(l);" << std::endl;
+	std::cout << "LinkedList<int> copyList(l);"             << std::endl << std::endl;
 	LinkedList<int> copyList(l);
-	std::cout << "copyList.size() = " << copyList.size() << std::setw(32) << std::right << "[Expected: 3]" << std::endl;
-	std::cout << "copyList.get(2) = " << copyList.get(2) << std::setw(32) << std::right << "[Expected: 42]" << std::endl;
+	std::cout << std::setw(20) << std::right << "copyList.size() = " << copyList.size()
+	          << std::setw(20) << std::right << "[Expected: 3]" << std::endl;
+	std::cout << std::setw(20) << std::right << "copyList.get(2) = " << copyList.get(2)
+	          << std::setw(20) << std::right << "[Expected: 42]" << std::endl;
 	std::cout << std::endl;
 
 	// Testing toArray
@@ -125,9 +130,10 @@ int main()
 	std::cout << "-----------------------------------------------------" << std::endl;
 	std::cout << "Testing toArray" << std::endl;
 	std::cout << "-----------------------------------------------------" << std::endl;
-	std::cout << "std::vector<int> arr = l.toArray();" << std::endl;
+	std::cout << "std::vector<int> arr = l.toArray();"      << std::endl << std::endl;
 	std::vector<int> arr = l.toArray();
-	std::cout << "arr[2] = " << arr[2] << std::setw(32) << std::right << "[Expected: 42]" << std::endl;
+	std::cout << std::setw(20) << std::right << "arr[2] = " << arr[2]
+	          << std::setw(20) << std::right << "[Expected: 42]" << std::endl;
 	std::cout << std::endl;
 
     // Testing operator+=
